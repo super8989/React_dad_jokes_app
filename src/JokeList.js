@@ -4,7 +4,9 @@ import axios from "axios";
 class JokeList extends Component {
 	async componentDidMount() {
 		//Load jokes
-		let res = await axios.get("https://icanhazdadjoke.com/");
+		let res = await axios.get("https://icanhazdadjoke.com/", {
+			headers: { Accept: "application/json" }
+		});
 		console.log(res);
 	}
 
