@@ -15,10 +15,13 @@ class JokeList extends Component {
 		//Load jokes
 		let jokes = [];
 
-		let res = await axios.get("https://icanhazdadjoke.com/", {
-			headers: { Accept: "application/json" }
-		});
-		console.log(res.data.joke);
+		while (jokes.length < this.props.numJokesToGet) {
+			let res = await axios.get("https://icanhazdadjoke.com/", {
+				headers: { Accept: "application/json" }
+			});
+			jokes.push(res.data.joke);
+		}
+		this.setState({ jokes: jokes });
 	}
 
 	render() {
