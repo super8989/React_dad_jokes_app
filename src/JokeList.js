@@ -36,11 +36,15 @@ class JokeList extends Component {
 	}
 
 	handleVote(id, delta) {
-		this.setState(st => ({
-			jokes: st.jokes.map(j =>
-				j.id === id ? { ...j, votes: j.votes + delta } : j
-			)
-		}));
+		this.setState(
+			st => ({
+				jokes: st.jokes.map(j =>
+					j.id === id ? { ...j, votes: j.votes + delta } : j
+				)
+			}),
+			() =>
+				window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+		);
 	}
 
 	handleClick() {
