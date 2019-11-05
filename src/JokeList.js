@@ -14,6 +14,7 @@ class JokeList extends Component {
 		this.state = {
 			jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]")
 		}; //parse either localStorage("jokes") OR parse the string of [] which turns into an empty array
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -42,6 +43,10 @@ class JokeList extends Component {
 		}));
 	}
 
+	handleClick() {
+		this.getJokes();
+	}
+
 	render() {
 		return (
 			<div className='JokeList'>
@@ -53,7 +58,9 @@ class JokeList extends Component {
 						src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'
 						alt='laughing'
 					/>
-					<button className='JokeList-getmore'>New Jokes</button>
+					<button className='JokeList-getmore' onClick={this.handleClick}>
+						New Jokes
+					</button>
 				</div>
 
 				<div className='JokeList-jokes'>
