@@ -11,7 +11,9 @@ class JokeList extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { jokes: [] };
+		this.state = {
+			jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]")
+		}; //parse either localStorage("jokes") OR parse the string [] which turns into an empty array
 	}
 
 	async componentDidMount() {
