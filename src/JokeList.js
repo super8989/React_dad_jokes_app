@@ -25,6 +25,7 @@ class JokeList extends Component {
 			jokes.push({ id: uuid(), text: res.data.joke, votes: 0 }); //res.data.joke = text of joke
 		}
 		this.setState({ jokes: jokes });
+		window.localStorage.setItem("jokes", JSON.stringify(jokes));
 	}
 
 	handleVote(id, delta) {
@@ -42,7 +43,10 @@ class JokeList extends Component {
 					<h1 className='JokeList-title'>
 						<span>Dad</span> Jokes
 					</h1>
-					<img src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg' />
+					<img
+						src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'
+						alt='laughing'
+					/>
 					<button className='JokeList-getmore'>New Jokes</button>
 				</div>
 
