@@ -13,10 +13,14 @@ class JokeList extends Component {
 		super(props);
 		this.state = {
 			jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]")
-		}; //parse either localStorage("jokes") OR parse the string [] which turns into an empty array
+		}; //parse either localStorage("jokes") OR parse the string of [] which turns into an empty array
 	}
 
-	async componentDidMount() {
+	componentDidMount() {
+		if (this.state.jokes.length === 0) this.getJokes();
+	}
+
+	async getJokes() {
 		//Load jokes
 		let jokes = [];
 
