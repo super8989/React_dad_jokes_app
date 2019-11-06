@@ -34,9 +34,54 @@
 
 .fa-arrow-up,
 .fa-arrow-down {
-	font-size: 1.5em;
+	font-size: 2em;
 	margin: 10px;
 	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.fa-arrow-up:hover {
+	animation-name: move-up;
+	animation-duration: 1.2s;
+	animation-timing-function: ease-out;
+	color: green;
+}
+
+@keyframes move-up {
+	0%,
+	30%,
+	60%,
+	100% {
+		transform: translateY(0);
+	}
+
+	15%,
+	45%,
+	75% {
+		transform: translateY(-5px);
+	}
+}
+
+.fa-arrow-down:hover {
+	animation-name: move-down;
+	animation-duration: 1.2s;
+	animation-timing-function: ease-out;
+	color: red;
+}
+
+@keyframes move-down {
+	0%,
+	30%,
+	60%,
+	100% {
+		transform: translateY(0);
+	}
+
+	15%,
+	45%,
+	75% {
+		transform: translateY(5px);
+	}
 }
 
 .Joke-smiley {
