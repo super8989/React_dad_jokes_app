@@ -95,7 +95,7 @@ class JokeList extends Component {
 						alt='laughing'
 					/>
 					<button className='JokeList-getmore' onClick={this.handleClick}>
-						New Jokes
+						Give Me More!
 					</button>
 				</div>
 
